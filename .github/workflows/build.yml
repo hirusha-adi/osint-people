@@ -26,7 +26,7 @@ jobs:
 
       - name: Build executables with PyInstaller
         run: |
-          pyinstaller osint_people.py --noconfirm --onefile --name "osint_people" --console
+          pyinstaller osint-people.py --noconfirm --onefile --name "osint_people" --console
 
       - name: Rename files
         run: |
