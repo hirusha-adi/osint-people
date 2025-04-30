@@ -1,18 +1,57 @@
-import requests
 import hashlib
-from utils import decorators
+from utils import decorators, colored, request
 
 
 @decorators.handle_errors
-def start(email: str):
-    encoded_email = email.lower().encode("utf-8")
-    hashed_email = hashlib.sha256(encoded_email).hexdigest()
-    r = requests.get(f"https://en.gravatar.com/{hashed_email}.json")
+def start(email: str) -> None:
+    colored.print_debug(f"Checking Gravatar for email: {email}")
 
-    if "User not found" in r.text:
-        print("[-] Account not found in Gravatar.")
+    hashed_email = hashlib.sha256(email.lower().encode("utf-8")).hexdigest()
+    url = f"https://en.gravatar.com/{hashed_email}.json"
 
-    else:
-        print(
-            f"[+] Account found in Gravar, with username: {r.json()['entry'][0]['displayName']}"
-        )
+    response = request.safe_request("GET", url, result_as_json=False)
+    if response is None:
+        colored.print_error("No response from Gravatar.")
+        return
+
+    if "User not found" in response.text:
+        colored.print_warning("[-] Account not found in Gravatar.")
+        return
+
+    try:
+        data = response.json()
+        entry = data.get("entry", [{}])[0]
+
+        colored.print_success("[+] Account found in Gravatar.")
+        print("----------")
+
+        # Basic Information
+        print("\nBasic Information:")
+        for key in ["displayName", "preferredUsername", "profileUrl", "thumbnailUrl"]:
+            value = entry.get(key)
+            if value:
+                print(f" - {key}: {value}")
+
+        # Photos
+        photos = entry.get("photos", [])
+        if photos:
+            print("\nPhotos:")
+            for photo in photos:
+                print(f" - {photo.get('type')}: {photo.get('value')}")
+
+        # Accounts
+        accounts = entry.get("accounts", [])
+        if accounts:
+            print("\nLinked Accounts:")
+            for acc in accounts:
+                print(f" - Platform: {acc.get('name')}")
+                print(f"   Username: {acc.get('username')}")
+                print(f"   Display: {acc.get('display')}")
+                print(f"   URL: {acc.get('url')}")
+                print(f"   Verified: {acc.get('verified')}")
+                print("")
+
+        print("----------")
+
+    except Exception as e:
+        colored.print_error(f"Error parsing Gravatar data: {e}")
