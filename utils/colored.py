@@ -43,7 +43,7 @@ def print_error(*args, sep: str = ' ', end: str = '\n') -> None:
     Returns:
         None
     """
-    print(f"{Fore.RED}{__format_args(args, sep)}", end=end)
+    print(f"{Fore.RED}[-] {__format_args(args, sep)}", end=end)
 
 def print_success(*args, sep: str = ' ', end: str = '\n') -> None:
     """
@@ -57,7 +57,7 @@ def print_success(*args, sep: str = ' ', end: str = '\n') -> None:
     Returns:
         None
     """
-    print(f"{Fore.GREEN}{__format_args(args, sep)}", end=end)
+    print(f"{Fore.GREEN}[+] {__format_args(args, sep)}", end=end)
 
 def print_warning(*args, sep: str = ' ', end: str = '\n') -> None:
     """
@@ -71,7 +71,7 @@ def print_warning(*args, sep: str = ' ', end: str = '\n') -> None:
     Returns:
         None
     """
-    print(f"{Fore.YELLOW}{__format_args(args, sep)}", end=end)
+    print(f"{Fore.YELLOW}[!] {__format_args(args, sep)}", end=end)
 
 def print_debug(*args, sep: str = ' ', end: str = '\n') -> None:
     """
@@ -85,4 +85,4 @@ def print_debug(*args, sep: str = ' ', end: str = '\n') -> None:
     Returns:
         None
     """
-    print(f"{Fore.LIGHTBLACK_EX}{__format_args(args, sep)}", end=end)
+    print(f"{Fore.LIGHTBLACK_EX}[>] {__format_args(args, sep)}", end=end)
