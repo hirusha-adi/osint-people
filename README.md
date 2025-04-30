@@ -62,6 +62,13 @@ python3 osint_people.py init
 python3 osint_people.py --help
 ```
 
-## How it works?
+## FAQ
 
-Learn more here.
+1. How does it work?
+
+I will soon add guides explaining what every file does in this project. 
+
+2. Can we save the results to a file?
+
+No! but you can redirect the programs output to a file using `>> output.txt`.
+
