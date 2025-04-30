@@ -11,7 +11,7 @@ All the inputs MUST be taken as CLI arguments. You should not use the `input()` 
 All the functions listed below have been well documented, though it's very simple and self-explanatory.
 
 **General Messages**
-Use `utils.colored.print_normal()`. Just the normal `print()`. Try to stick with the other functions whenever and wherever possible.
+Use `utils.colored.print_normal()`. Just the normal `print()`.
 
 **Errors**
 Use `utils.colored.print_error()`. Must be printed in red color if supported.

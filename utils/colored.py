@@ -29,7 +29,7 @@ def print_normal(*args, sep: str = ' ', end: str = '\n') -> None:
     Returns:
         None
     """
-    print(__format_args(args, sep), end=end)
+    print(f"[+] {__format_args(args, sep)}", end=end)
 
 def print_error(*args, sep: str = ' ', end: str = '\n') -> None:
     """
