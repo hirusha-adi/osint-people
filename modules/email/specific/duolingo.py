@@ -2,7 +2,7 @@ from utils import decorators, colored, request
 
 @decorators.handle_errors
 def start(email: str) -> None:
-    colored.print_debug(f"Checking duolingo for email: {email}")
+    colored.print_info(f"Checking duolingo for email: {email}")
 
     # f"https://www.duolingo.com/2017-06-30/users?email={email}"
     url = "https://www.duolingo.com/2017-06-30/users"

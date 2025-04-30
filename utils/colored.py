@@ -17,7 +17,7 @@ def __format_args(args: t.Iterable, sep: str) -> str:
     """
     return sep.join(str(arg) for arg in args)
 
-def print_normal(*args, sep: str = ' ', end: str = '\n') -> None:
+def print_info(*args, sep: str = ' ', end: str = '\n') -> None:
     """
     Print text with normal formatting.
 

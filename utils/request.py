@@ -34,7 +34,7 @@ def safe_request(
         dict | requests.Response | None: JSON response if successful (or raw response based on `result_as_json`), None on error.
     """
     try:
-        colored.print_debug(f"Sending {method.upper()} request to {url}")
+        colored.print_info(f"Sending {method.upper()} request to {url}")
         response = requests.request(
             method=method.upper(),
             url=url,

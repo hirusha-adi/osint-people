@@ -3,6 +3,7 @@ import functools
 from datetime import datetime
 import inspect
 import time
+from utils import colored
 
 def handle_errors(func):
     @functools.wraps(func)
@@ -10,7 +11,7 @@ def handle_errors(func):
         try:
             return func(*args, **kwargs)
         except Exception as e:
-            print(f"An error occurred in {func.__name__}: {e}")
+            colored.print_error(f"An error occurred in {func.__name__}: {e}")
             traceback.print_exc() 
             return None 
 
@@ -23,10 +24,10 @@ def show_function_info(func):
         signature = str(inspect.signature(func))
         frame = inspect.currentframe().f_back
 
-        print(f"[DEBUG] Running: {func_name}")
-        print(f"[DEBUG] Signature: {signature}")
-        print(f"[DEBUG] Arguments: Positional: {args}, Keyword: {kwargs}")
-        print(f"[DEBUG] Time: {datetime.now()}")
+        colored.print_debug(f"Running: {func_name}")
+        colored.print_debug(f"Signature: {signature}")
+        colored.print_debug(f"Arguments: Positional: {args}, Keyword: {kwargs}")
+        colored.print_debug(f"Time: {datetime.now()}")
 
         start_time = time.time()
         # ---
@@ -35,7 +36,7 @@ def show_function_info(func):
         end_time = time.time()
         execution_time = end_time - start_time
 
-        print(f"[DEBUG] Execution time: {execution_time:.4f} seconds")
+        colored.print_debug(f"Execution time: {execution_time:.4f} seconds")
 
         return result
     
