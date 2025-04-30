@@ -4,7 +4,7 @@ from utils import decorators, colored, request
 
 @decorators.handle_errors
 def start(email: str) -> None:
-    colored.print_debug(f"Checking Gravatar for email: {email}")
+    colored.print_info(f"Checking Gravatar for email: {email}")
 
     hashed_email = hashlib.sha256(email.lower().encode("utf-8")).hexdigest()
     url = f"https://en.gravatar.com/{hashed_email}.json"
@@ -22,23 +22,19 @@ def start(email: str) -> None:
         data = response.json()
         entry = data.get("entry", [{}])[0]
 
-        colored.print_success("[+] Account found in Gravatar.")
         print("----------")
-
         # Basic Information
         print("\nBasic Information:")
         for key in ["displayName", "preferredUsername", "profileUrl", "thumbnailUrl"]:
             value = entry.get(key)
             if value:
                 print(f" - {key}: {value}")
-
         # Photos
         photos = entry.get("photos", [])
         if photos:
             print("\nPhotos:")
             for photo in photos:
                 print(f" - {photo.get('type')}: {photo.get('value')}")
-
         # Accounts
         accounts = entry.get("accounts", [])
         if accounts:
@@ -50,8 +46,9 @@ def start(email: str) -> None:
                 print(f"   URL: {acc.get('url')}")
                 print(f"   Verified: {acc.get('verified')}")
                 print("")
-
         print("----------")
+
+        colored.print_success("[+] Account found in Gravatar.")
 
     except Exception as e:
         colored.print_error(f"Error parsing Gravatar data: {e}")

@@ -12,6 +12,12 @@ def start(email: str) -> None:
         colored.print_error("No data returned from chess.com.")
         return
 
+    print("----------")
+    print("Recieved data:")
+    for key, value in data.items():
+        print(f" - {key}: {value}")
+    print("----------")
+
     if data.get("isEmailAvailable") is True:
         colored.print_warning("Account not found in chess.com.")
     elif data.get("isEmailAvailable") is False:

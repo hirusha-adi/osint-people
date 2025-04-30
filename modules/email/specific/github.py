@@ -20,10 +20,9 @@ def start(email: str) -> None:
         colored.print_warning("Account not found in GitHub.")
         return
 
-    colored.print_success(f"Accounts found in GitHub: {total_count}")
-    print("----------")
-
     data: t.List[t.Union[None,t.Dict]] = data.get("items", [])
+
+    print("----------")
     for item in data:
         if item:
             print(f"Username: {item.get('login')}")
@@ -45,6 +44,7 @@ def start(email: str) -> None:
             print(f"Site Admin: {item.get('site_admin')}")
             print(f"Score: {item.get('score')}")
             print("----------")
-
     if len(data) == 0:
         print("----------")
+
+    colored.print_success(f"Accounts found in GitHub: {total_count}")
