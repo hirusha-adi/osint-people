@@ -1,7 +1,7 @@
 @echo off
 REM Set the script name (change if your script filename is different)
-set SCRIPT_NAME=stalker
-set PYTHON_FILE=stalker.py
+set SCRIPT_NAME=osint_people
+set PYTHON_FILE=osint_people.py
 
 echo Building executable...
 pyinstaller --onefile --name=%SCRIPT_NAME% %PYTHON_FILE%

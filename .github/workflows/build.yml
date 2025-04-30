@@ -26,11 +26,11 @@ jobs:
 
       - name: Build executables with PyInstaller
         run: |
-          pyinstaller stalker.py --noconfirm --onefile --name "stalker" --console
+          pyinstaller osint_people.py --noconfirm --onefile --name "osint_people" --console
 
       - name: Rename files
         run: |
-          Rename-Item -Path dist/stalker.exe -NewName stalker-winx64.exe
+          Rename-Item -Path dist/osint_people.exe -NewName osint_people-winx64.exe
 
       - name: Create Tag
         id: create_tag
@@ -49,4 +49,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            dist/stalker-winx64.exe
+            dist/osint_people-winx64.exe

@@ -210,13 +210,13 @@ def username_specific_github(username: str) -> None:
 
 if __name__ == '__main__':
     @click.group()
-    def stalker():
+    def osint_people():
         pass
 
-    stalker.add_command(init)
-    stalker.add_command(email)
-    stalker.add_command(password)
-    stalker.add_command(phonenumber)
-    stalker.add_command(username)
+    osint_people.add_command(init)
+    osint_people.add_command(email)
+    osint_people.add_command(password)
+    osint_people.add_command(phonenumber)
+    osint_people.add_command(username)
 
-    stalker()
+    osint_people()

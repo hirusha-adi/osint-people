@@ -35,7 +35,7 @@ def __save_file_to_path(url, save_path):
 
 
 def initialize() -> None:
-    print("Initializing the stalker tool...")
+    print("Initializing the osint_people tool...")
     __save_file_to_path("https://raw.githubusercontent.com/WebBreacher/WhatsMyName/main/wmn-data.json", "support/wmn-data.json")
 
     print("Done!")

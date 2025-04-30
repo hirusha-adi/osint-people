@@ -1,6 +1,6 @@
-# Stalker - OSINT Tool
+# OSINT People
 
-Stalker is an OSINT (Open Source Intelligence) tool designed to help you gather information about individuals based on various identifiers like email addresses, usernames, phone numbers, and passwords. This tool integrates with multiple OSINT services and provides several commands to gather relevant data.
+OSINT People is an OSINT (Open Source Intelligence) tool designed to help you gather information about individuals based on various identifiers like email addresses, usernames, phone numbers, and passwords. This tool integrates with multiple OSINT services and provides several commands to gather relevant data.
 
 ## Modules
 
@@ -17,8 +17,8 @@ Demonstration: [Youtube Video](https://youtu.be/wycDqyVkIdE)
 1. Clone the repository:
 
 ```
-git clone https://github.com/hirusha-adi/Stalker.git
-cd Stalker
+git clone https://github.com/hirusha-adi/osint-people.git
+cd osint-people
 ```
 
 2. Enable and activate a virtual environment (optional but recommended)
@@ -37,29 +37,29 @@ pip3 install -r requirements.txt
 4. Run the script:
 
 ```
-python3 stalker.py --help
+python3 osint_people.py --help
 ```
 
 ### Using the executable
 
-1. Go to the [latest release](https://github.com/hirusha-adi/Stalker/releases/latest).
-2. Download the `stalker.exe` file.
+1. Go to the [latest release](https://github.com/hirusha-adi/osint-people/releases/latest).
+2. Download the `osint_people.exe` file.
 3. Open a shell (cmd/powershell) in the same directory to start using it.
 
-You should use `stalker.exe` instead of `python3 stalker.py` wherever it's mentioned at.
+You should use `osint_people.exe` instead of `python3 osint_people.py` wherever it's mentioned at.
 
 ## Usage
 
 Make sure to run the command below to initialize all the dependencies required for all the modules to function correctly before using anything.
 
 ```
-python3 stalker.py init
+python3 osint_people.py init
 ```
 
 ## Usage Examples
 
 ```
-python3 stalker.py --help
+python3 osint_people.py --help
 ```
 
 ## How it works?
